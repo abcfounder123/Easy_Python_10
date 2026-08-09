@@ -225,5 +225,433 @@ else:
 
 ################################################ 
 
+Step.4 ( idea => code )
+
+print("motor on.")
+
+------------------------------------------------- 
+
+1. low level
+
+if low_level:
+    print("motor on.")
+    
+################################################ 
+
+2. electric, not electric  
+
+if low_level:
+    if electric:
+        print("motor on.")
+    else:
+        print("generator on.")
+        print("motor on.")
+        
+################################################  
+
+3. short circuit, not short circuit
+
+if short_circuit:
+    print("call mechanic.1")
+else:
+    print("motor on.")
+    
+------------------------------------------------- 
+    
+111
+low_level + electric + short_circuit   =>   print("call mechanic.1")
+    
+101
+low_level + not electric + short_circuit   =>   print("call mechanic.2")   
+    
+110
+low_level + electric + not short_circuit   =>   print("motor on.")
+    
+100
+low_level + not electric + not short_circuit   =>   print("motor on.")
+   
+10   =>   print("generator on.")   
+101  =>   print("generator off.")
+
+------------------------------------------------- 
+
+low_level = 1
+electric = 1
+short_circuit = 0
+
+if low_level:
+    if electric:
+        if short_circuit:
+            print("call mechanic.1")
+        else:
+            print("motor on.")
+
+    else:
+        print("generator on.")
+        if short_circuit:
+            print("call mechanic.2")
+            print("generator off.")
+        else:
+            print("motor on.")
+
+################################################
+
+4. motor.2
+
+print("motor.2 on.") 
+
+-------------------------------------------------
+
+111
+low_level + electric + short_circuit   =>   print("motor.2 on.")   
+
+101
+low_level + not electric + short_circuit   =>   print("motor.2 on.")
+
+-------------------------------------------------
+
+low_level = 1
+electric = 0
+short_circuit = 1
+short_circuit_2 = 1
+
+
+if low_level:
+    if electric:
+        if short_circuit:
+            print("call mechanic for m1")
+            print("motor.2 on.")
+        else:
+            print("motor on.")
+
+    else:
+        print("generator on.")
+        if short_circuit:
+            print("call mechanic for m1")
+            print("motor.2 on.")
+        else:
+            print("motor on.")
+
+ 
+################################################
+
+5. short_circuit_2, not short_circuit_2   
+    
+1111          =>    print("call mechanic for m1")
+                    print("call mechanic for m2")
+                    
+1011          =>    print("generator on.")
+                    print("call mechanic for m1")
+                    print("call mechanic for m2")
+                    print("generator off.")
+                                        
+1110          =>    print("call mechanic for m1")
+                    print("motor.2 on.")
+                    
+1010          =>    print("generator on.")
+                    print("call mechanic for m1")
+                    print("motor.2 on.")
+                    
+-------------------------------------------------
+
+low_level = 1
+electric = 1
+short_circuit = 1
+short_circuit_2 = 0
+
+
+if low_level:
+    if electric:
+        if short_circuit:
+            print("call mechanic for m1")
+            if short_circuit_2:
+                print("call mechanic for m2")
+            else:
+                print("motor.2 on.")
+        else:
+            print("motor on.")
+
+    else:
+        print("generator on.")
+        if short_circuit:
+            print("call mechanic for m1")
+            if short_circuit_2:
+                print("call mechanic for m2")
+                print("generator off.")
+            else:
+                print("motor.2 on.")
+        else:
+            print("motor on.")
+
+################################################
+
+6. m3
+
+print("motor.3 on.")
+
+################################################
+
+7. short_circuit_3, not short_circuit_3 
+
+11111  
+10111 
+
+11110 
+10110 
+
+################################################
+
+8. m4
+
+9. short_circuit_4, not short_circuit_4 
+
+################################################################################################
+
+"""
+
+"""
+
+1. Sequence
+   - top
+   - left
+   - parenthesis first
+
+#################################################
+
+2. Selection (if, elif, else)
+
+#####################################
+
+1. if
+
+ချိတ်ဆက်ထားတဲ့ condition မှန်ရင် အလုပ်လုပ်သည်။
+
+#####################################
+
+mark = int(input("Marks = "))
+
+if mark >= 40:
+    print("Exam pass.")
+
+#####################################
+
+2. else
+
+ချိတ်ဆက်ထားတဲ့ condition မှားရင် အလုပ်လုပ်သည်။
+
+#####################################
+
+mark = int(input("Marks = "))
+
+if mark >= 40:
+    print("Exam pass.")
+
+else:
+    print("Exam fail.")
+
+#####################################
+
+mark = int(input("Marks = "))
+
+c1 = mark >= 40
+
+if c1:
+    print("Exam pass.")
+
+else:
+    print("Exam fail.")
+
+#####################################
+
+3. all from all , one from one
+
+mark = 500
+
+c1 = mark >= 500
+c2 = mark >= 400
+c3 = mark >= 300
+c4 = mark >= 240
+
+if c1: print("Doctor.")
+
+if c2: print("Programmer.")
+
+if c3: print("Engineer.")
+
+if c4: print("Distance.")
+
+#####################################
+
+4. one from all
+
+mark = 400
+
+c1 = mark >= 500
+c2 = mark >= 400
+c3 = mark >= 300
+c4 = mark >= 240
+
+if c1: print("Doctor.")
+
+if not c1 and c2: print("Programmer.")
+
+if not c1 and not c2 and c3: print("Engineer.")
+
+if not c1 and not c2 and not c3 and c4: print("Distance.")
+
+#####################################
+
+5. one from all by Python ( elif ) ( else + if )
+
+mark = 500
+
+c1 = mark >= 500
+c2 = mark >= 400
+c3 = mark >= 300
+c4 = mark >= 240
+
+if c1: print("Doctor.")
+
+elif c2: print("Programmer.")
+
+elif c3: print("Engineer.")
+
+elif c4: print("Distance.")
+
+#####################################
+
+Programmer  =>  not c1 and c2             
+Engineer    =>  not c1 and not c2 and c3
+Doctor      =>  c1
+Distance    =>  not c1 and not c2 and not c3 and c4
+
+Doctor      =>  c1
+Programmer  =>  not c1 and c2
+Engineer    =>  not c1 and not c2 and c3
+Distance    =>  not c1 and not c2 and not c3 and c4
+
+Grade 12    =>  not c1 and not c2 and not c3 and not c4
+
+#####################################
+
+6. if + elif + else
+
+if not c1 and not c2 and not c3 and not c4: print("Grade 12.")
+
+#####################################
+
+mark = int(input("Marks = "))
+
+c1 = mark >= 500
+c2 = mark >= 400
+c3 = mark >= 300
+c4 = mark >= 240
+
+if c1: print("Doctor.")
+
+elif c2: print("Programmer.")
+
+elif c3: print("Engineer.")
+
+elif c4: print("Distance.")
+
+else: print("Grade 12.")
+
+##########################################################################
+
+Code quality
+
+A+             90
+A              80
+B              70
+C              50
+F
+
+A+  =>  c1
+A   =>  not c1 and c2
+B   =>  not c1 and c2 and c3
+C   =>  not c1 and c2 and not c3 and c4
+F   =>  not c1 and c2 and not c3 and not c4
+
+c1 = mark >= 90
+c2 = mark >= 80
+c3 = mark >= 70
+c4 = mark >= 50
+
+#####################################
+
+mark = 100
+
+c1 = mark >= 90
+c2 = mark >= 80
+c3 = mark >= 70
+c4 = mark >= 50
+
+if c1:
+    print("A+")
+
+elif c2:
+    print("A")
+
+elif c3:
+    print("B")
+
+elif c4:
+    print("C")
+
+else:
+    print("Fail")
+
+time = + 8 micro sec,  1 to 4
+memory = c1 to c4 (120 byte)
+
+#####################################
+
+mark = 75
+
+if mark >= 90:
+    print("A+")
+
+elif mark >= 80:
+    print("A")
+
+elif mark >= 70:
+    print("B")
+
+elif mark >= 50:
+    print("C")
+
+else:
+    print("Fail")
+
+time = 1 to 4
+memory = 0 to 30 byte
+
+#####################################
+
+mark = 30
+
+if 100 >= mark >= 90:
+    print("A+")
+
+if 90 > mark >= 80:
+    print("A")
+
+if 80 > mark >= 70:
+    print("B")
+
+if 70 > mark >= 50:
+    print("C")
+
+if mark < 50:
+    print("Fail")
+
+c  => 9
+if => 5
+
+time = 14 micro sec
+memory = 0 to 30 bytes
+
+####################################################################################
 
 """
