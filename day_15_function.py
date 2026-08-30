@@ -502,4 +502,98 @@ def greater_number(n1, n2):
 
 ------------------------------------------
 
+10. leap year (ရက်ထပ်နှစ်) (Julian calendar)
+
+1. divisible by 4  (y % 4 == 0)
+
+
+def is_leap_year(y):
+    return y % 4 == 0
+
+
+------------------------------------------
+
+11. leap year (ရက်ထပ်နှစ်) (Gregorian calendar)
+
+1. divisible by 400 ( eg. 2000, 1600 )       ( y % 400 == 0 )
+2. divisible by 4 and not divisible by 100   ( y % 4 == 0 and y % 100 != 0 )
+Rule.1 or Rule.2
+
+
+def is_leap_year(y):
+    return (y % 400 == 0) or (y % 4 == 0 and y % 100 != 0)
+
+
+------------------------------------------
+
+12. leap year (ရက်ထပ်နှစ်) Modern calendar
+
+1. divisible by 400 and not divisible by 3200  ( y % 400 == 0 and y % 3200 != 0 )
+2. divisible by 4 and not divisible by 100     ( y % 4 == 0 and y % 100 != 0 )
+  
+
+def is_leap_year(y):
+    return ( y % 400 == 0 and y % 3200 != 0 ) or ( y % 4 == 0 and y % 100 != 0)
+
+
+------------------------------------------
+
+Summary
+=> +1 days by 4 years                     <---  Julian
+=> -3 days by 400 years                   <---  Gregorian
+=> -1 days by 3200 years                  <---  Modern
+
+------------------------------------------
+
+13. summation
+    => summation of 5 = 1 + 2 + 3 + 4 + 5 = 15
+
+
+def summation(n):
+    ans = 0
+    for i in range(1, n + 1):
+        ans += i
+    return ans
+    
+
+------------------------------------------
+
+14. factorial(n) (မြှောက်ဖော်ကိန်း)
+    => factorial of 5 = 1 * 2 * 3 * 4 * 5 = 120
+
+
+def factorial(n):
+    ans = 1
+    for i in range(1, n + 1):
+        ans *= i
+    return ans
+
+
+------------------------------------------
+
+15. reverse_string(s) (string ကိုနောက်ကစပြီး ပြောင်းပြန်ရေးခြင်း။) ( [::-1] )
+    - "I go to school."
+    - ".loohcs ot og I"
+
+
+def reverse_string(s):
+    return s[::-1]
+
+
+------------------------------------------
+
+16. count_vowels(s) (စာလုံးထဲက a, e, i, o, u ရေတွက်ခြင်း။)
+
+
+def count_vowels(s):
+    t = 0
+    for c in s:
+        if c in "aeiouAEIOU":
+            t += 1
+    return t
+
+
+------------------------------------------
+
+
 """
