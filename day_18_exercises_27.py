@@ -3,12 +3,13 @@
 
 Exercises (27)
 
+
 1. is_even (တန်ဖိုးတစ်ခုခုကို 2 နဲ့စားလို့ အကြွင်း 0 ရရင် စုံကိန်းဖြစ်ပါတယ်။)( n % 2 == 0)
 
 ------------------------------------------
 
 2. is_odd (တန်ဖိုးတစ်ခုခုကို 2 နဲ့စားလို့ အကြွင်း 1 ရရင် မကိန်းဖြစ်ပါတယ်။) ( n % 2 == 1 )
-
+    
 ------------------------------------------
 
 3. is_number (0 1 2 3 4 5 6 7 8 9 စတာတွေဟာ နံပါတ်တွေဖြစ်ကြပါတယ်။) ( c in "0123456789" )
@@ -207,7 +208,7 @@ print(n)
 
 def is_lower(c):
     return c in "abcdefghijklmnopqrstuvwxyz"
-    
+
 
 ------------------------------------------
 
@@ -247,6 +248,7 @@ def greater_number(n1, n2):
     else:
         return n2
 
+
 ------------------------------------------
 
 9. less number ( n1 < n2 )
@@ -258,13 +260,14 @@ def less_number(n1, n2):
     else:
         return n2
 
+
 ------------------------------------------
 
 "Three steps of greater number"
 
-greater_number(2, 1)   =>  2      <-- n1           1sec    1    1
-greater_number(1, 2)   =>  2      <-- n2           2       2    1
-greater_number(2, 2)   =>  2      <-- n1 or n2     3       2    1
+greater_number(2, 1)   =>  2      <-- n1      
+greater_number(1, 2)   =>  2      <-- n2           
+greater_number(2, 2)   =>  2      <-- n1 or n2  
 
 
 def greater_number(n1, n2):
